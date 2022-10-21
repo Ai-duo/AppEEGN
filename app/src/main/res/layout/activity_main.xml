@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+      <variable
+          name="info"
+          type="com.kd.appeegn.Info" />
+        <variable
+            name="date"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="384px"
+        android:layout_height="224px"
+        android:background="@drawable/bk"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="174px"
+                android:layout_height="40px"
+                android:gravity="center"
+                android:text="额尔古纳市气象"
+                android:textColor="#FFF"
+                android:textSize="22px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|right"
+                android:paddingRight="16px"
+                android:text="@{date}"
+                android:textColor="#FFF"
+                android:textSize="12px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="24px"
+            android:layout_marginLeft="34px"
+            android:layout_width="316px"
+            android:layout_height="146px"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="66px"
+                    android:layout_height="66px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/oxy" />
+
+                <TextView
+                    android:layout_width="75px"
+                    android:textColor="#fff"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="负氧离子"
+                    android:textSize="17px" />
+
+                <TextView
+                    android:textColor="#ff0"
+                    android:layout_width="175px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@{info.ndu}"
+                    android:textSize="19px" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="53px"
+                    android:layout_height="53px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/wd" />
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="35px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="温度"
+                    android:textSize="17px" />
+
+                <TextView
+                    android:textColor="#ff0"
+                    android:layout_width="73px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@{info.wdu}"
+                    android:textSize="19px" />
+
+                <ImageView
+                    android:layout_width="53px"
+                    android:layout_height="53px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/sd" />
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="35px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="湿度"
+                    android:textSize="17px" />
+
+                <TextView
+                    android:textColor="#ff0"
+                    android:layout_width="73px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@{info.sdu}"
+                    android:textSize="19px" />
+            </LinearLayout>
+        </LinearLayout>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25px"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="72px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#333"
+                android:gravity="center"
+                android:text="天气预报"
+                android:textColor="#fff"
+                android:textSize="@dimen/mainwea" />
+
+            <com.kd.appwuyione.MarqueeView
+                android:layout_width="312px"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="#555"
+                app:marqueeview_text_color="#fff"
+                app:marqueeview_text_size="10"
+                app:marqueeview_text_speed="2.0"
+                app:setText="@{wea.wea_txt1}" />
+        </LinearLayout>-->
+        <!-- <LinearLayout
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="0px"
+             android:layout_weight="4">
+
+             <TextView
+                 android:id="@+id/time"
+                 android:layout_width="match_parent"
+                 android:layout_height="0px"
+                 android:layout_weight="1.6"
+                 android:gravity="center"
+                 android:text="@{date}"
+                 android:textColor="#fff"
+                 android:textSize="13px" />
+             <LinearLayout
+
+                 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="0px"
+                 android:layout_weight="10">
+                 <LinearLayout
+                     android:orientation="horizontal"
+                     android:layout_width="match_parent"
+                     android:layout_height="0px"
+                     android:layout_weight="1">
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/wd"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="温度"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+
+                     <TextView
+                         android:id="@+id/wd"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"
+                         android:gravity="center"
+                         android:text="@{elements.wd}"
+                         android:textColor="#fff"
+                         android:textSize="@dimen/textsize" />
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/fx"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="风向"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+
+                     <TextView
+                         android:id="@+id/fx"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"
+                         android:gravity="center"
+                         android:text="@{elements.fx}"
+                         android:textColor="#fff"
+                         android:textSize="@dimen/textsize" />
+                 </LinearLayout>
+                 <LinearLayout
+                     android:orientation="horizontal"
+                     android:layout_width="match_parent"
+                     android:layout_height="0px"
+                     android:layout_weight="1">
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/sd"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="湿度"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+                     <TextView
+                         android:id="@+id/sd"
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="@{elements.sd}"
+                         android:textColor="#fff"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"/>
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/fs"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="风速"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+                     <TextView
+                         android:id="@+id/fs"
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="@{elements.fs}"
+                         android:textColor="#fff"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"/>
+                 </LinearLayout>
+                 <LinearLayout
+                     android:orientation="horizontal"
+                     android:layout_width="match_parent"
+                     android:layout_height="0px"
+                     android:layout_weight="1">
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/js"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="雨量"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+                     <TextView
+                         android:id="@+id/yl"
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="@{elements.js}"
+                         android:textColor="#fff"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"/>
+                     <ImageView
+                         android:paddingTop="5px"
+                         android:paddingBottom="5px"
+                         android:paddingLeft="10px"
+                         android:paddingRight="10px"
+                         android:src="@drawable/qy"
+                         android:scaleType="fitXY"
+                         android:layout_weight="1"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"/>
+                     <TextView
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="气压"
+                         android:textColor="#ff0"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"/>
+                     <TextView
+                         android:id="@+id/qy"
+                         android:gravity="center"
+                         android:textSize="@dimen/textsize"
+                         android:text="@{elements.qy}"
+                         android:textColor="#fff"
+                         android:layout_width="0px"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"/>
+                 </LinearLayout>
+             </LinearLayout>
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="0.8"
+             android:orientation="horizontal">
+
+             <TextView
+
+                 android:layout_width="0px"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:background="#333"
+                 android:gravity="center"
+                 android:text="天气预报"
+                 android:textColor="#fff"
+                 android:textSize="@dimen/mainwea" />
+
+             <com.kd.appwuyione.MarqueeView
+                 android:layout_width="0px"
+                 android:layout_height="match_parent"
+                 android:layout_weight="5"
+                 android:background="#555"
+                 app:marqueeview_text_color="#fff"
+                 app:marqueeview_text_size="10"
+                 app:marqueeview_text_speed="2.0"
+                 app:setText="@{wea.wea_txt1}" />
+         </LinearLayout>-->
+    </LinearLayout>
+</layout>

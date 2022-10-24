@@ -43,9 +43,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="24px"
-            android:layout_marginLeft="34px"
-            android:layout_width="316px"
+            android:background="@drawable/bb"
+            android:layout_marginTop="15px"
+            android:layout_marginLeft="25px"
+            android:layout_width="330px"
             android:layout_height="146px"
             android:gravity="center"
             android:orientation="vertical">
@@ -64,12 +65,12 @@
                     android:src="@drawable/oxy" />
 
                 <TextView
-                    android:layout_width="75px"
+                    android:layout_width="89px"
                     android:textColor="#fff"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="负氧离子"
-                    android:textSize="17px" />
+                    android:textSize="20px" />
 
                 <TextView
                     android:textColor="#ff0"
@@ -77,7 +78,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@{info.ndu}"
-                    android:textSize="19px" />
+                    android:textSize="21px" />
             </LinearLayout>
             <LinearLayout
                 android:layout_weight="1"
@@ -95,11 +96,11 @@
 
                 <TextView
                     android:textColor="#fff"
-                    android:layout_width="35px"
+                    android:layout_width="42px"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="温度"
-                    android:textSize="17px" />
+                    android:textSize="20px" />
 
                 <TextView
                     android:textColor="#ff0"
@@ -107,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@{info.wdu}"
-                    android:textSize="19px" />
+                    android:textSize="21px" />
 
                 <ImageView
                     android:layout_width="53px"
@@ -117,11 +118,11 @@
 
                 <TextView
                     android:textColor="#fff"
-                    android:layout_width="35px"
+                    android:layout_width="42px"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="湿度"
-                    android:textSize="17px" />
+                    android:textSize="20px" />
 
                 <TextView
                     android:textColor="#ff0"
@@ -129,7 +130,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@{info.sdu}"
-                    android:textSize="19px" />
+                    android:textSize="21px" />
             </LinearLayout>
         </LinearLayout>
 

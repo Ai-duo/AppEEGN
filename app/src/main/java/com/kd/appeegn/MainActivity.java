@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.kd.appeegn.databinding.ActivityMainBinding;
 
@@ -25,22 +26,26 @@ public class MainActivity extends AppCompatActivity {
     Retrofit retrofit;
     Call<Info> ee;
     ActivityMainBinding amb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        amb = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        amb = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initRetrofit();
         initTask();
         start();
     }
-    private void initRetrofit(){
+
+    private void initRetrofit() {
         retrofit = new Retrofit.Builder().baseUrl("http://115.220.4.68:8081/qxdata/QxService.svc/getqxo2data/").addConverterFactory(GsonConverterFactory.create()).build();
         HttpAPI httpAPI = retrofit.create(HttpAPI.class);
         ee = httpAPI.getInfo("EET01");
 
     }
-    Timer tr,timer1;
-    private void start(){
+
+    Timer tr, timer1;
+
+    private void start() {
         tr = new Timer();
         tr.schedule(new TimerTask() {
             @Override
@@ -48,17 +53,18 @@ public class MainActivity extends AppCompatActivity {
                 ee.enqueue(new Callback<Info>() {
                     @Override
                     public void onResponse(Call<Info> call, Response<Info> response) {
-                        if(response.isSuccessful()){
-                            try{
+                        if (response.isSuccessful()) {
+                            try {
                                 final Info info = response.body();
+                                if (info!=null)
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
                                         amb.setInfo(info);
                                     }
                                 });
-                            }catch (Exception e){
-
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
 
                         }
@@ -70,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        },0,60*60*1000);
+        }, 0, 60 * 60 * 1000);
     }
+
     public TimerTask dates;
     final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年M月dd日 E HH:mm", Locale.CHINA);
 
@@ -84,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        amb.setDate(dateFormat.format(new Date())+"\n"+lunar.getAllDate());
+                        amb.setDate(dateFormat.format(new Date()) + "\n" + lunar.getAllDate());
                     }
                 });
             }

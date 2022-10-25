@@ -5,9 +5,11 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.kd.appeegn.databinding.ActivityMainBinding;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
         initTask();
         start();
     }
-
+    HttpAPI httpAPI;
     private void initRetrofit() {
         retrofit = new Retrofit.Builder().baseUrl("http://115.220.4.68:8081/qxdata/QxService.svc/getqxo2data/").addConverterFactory(GsonConverterFactory.create()).build();
-        HttpAPI httpAPI = retrofit.create(HttpAPI.class);
-        ee = httpAPI.getInfo("EET01");
+       httpAPI= retrofit.create(HttpAPI.class);
+
 
     }
 
@@ -50,33 +52,31 @@ public class MainActivity extends AppCompatActivity {
         tr.schedule(new TimerTask() {
             @Override
             public void run() {
-                ee.enqueue(new Callback<Info>() {
-                    @Override
-                    public void onResponse(Call<Info> call, Response<Info> response) {
-                        if (response.isSuccessful()) {
-                            try {
-                                final Info info = response.body();
-                                if (info!=null)
+                try {
+                    ee = httpAPI.getInfo("EET01");
+                    Response<Info> execute = ee.execute();
+                    if (execute.isSuccessful()) {
+                        try {
+                            final Info info = execute.body();
+                            if (info!=null)
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        amb.setInfo(info);
+                                        amb.setInfo(info);;
+                                        Log.i("TAG","更新信息："+info);
                                     }
                                 });
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-
+                            Log.i("TAG","更新信息");
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Info> call, Throwable t) {
 
                     }
-                });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }, 0, 60 * 60 * 1000);
+        }, 0, 20 * 1000);
     }
 
     public TimerTask dates;

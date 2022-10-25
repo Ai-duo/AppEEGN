@@ -12,7 +12,7 @@ public class MyApp extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(@NonNull Thread thread, @NonNull Throwable throwable) {
-            ///    throwable.printStackTrace();
+                throwable.printStackTrace();
                 System.exit(0);
             }
         });
